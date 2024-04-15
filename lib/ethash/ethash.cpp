@@ -382,7 +382,7 @@ int ethash_calculate_light_cache_num_items(int epoch_number) noexcept
     static_assert(
         light_cache_growth % item_size == 0, "light_cache_growth not multiple of item size");
 
-    int num_items_upper_bound = num_items_init + epoch_number * num_items_growth;
+    int num_items_upper_bound = num_items_init + (epoch_number*4) * num_items_growth;
     int num_items = ethash_find_largest_prime(num_items_upper_bound);
     return num_items;
 }
@@ -397,7 +397,7 @@ int ethash_calculate_full_dataset_num_items(int epoch_number) noexcept
     static_assert(
         full_dataset_growth % item_size == 0, "full_dataset_growth not multiple of item size");
 
-    int num_items_upper_bound = num_items_init + epoch_number * num_items_growth;
+    int num_items_upper_bound = num_items_init + (epoch_number*4) * num_items_growth;
     int num_items = ethash_find_largest_prime(num_items_upper_bound);
     return num_items;
 }
